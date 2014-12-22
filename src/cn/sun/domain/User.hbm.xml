@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.sun.domain.User" table="t_yhb" catalog="sun">
+		<id name="id" column="yh_id">
+			<generator class="native"></generator>
+		</id>
+		<property name="userType" column="yh_yhlx"></property>
+		<property name="username" column="yh_yhm"></property>
+		<property name="password" column="yh_mm"></property>
+		<property name="userMail" column="yh_dzyx"></property>
+		<property name="userPhone" column="yh_sjh"></property>
+		<property name="operator" column="yh_czr"></property>
+		<property name="createTime" column="yh_lrsj" type="java.util.Date"></property>
+		<!-- <property name="alterTime" column="yh_xgsj" type="java.util.Date"></property> -->
+		<property name="deleteMark" column="yh_scbj"></property>
+		<property name="yuliu1" column="yh_ylzd1"></property>
+		<property name="yuliu2" column="yh_ylzd2"></property>
+	</class>
+	
+	<query name="loginQuery">
+		<![CDATA[ from User where username = ? and password = ?]]>
+	</query>
+</hibernate-mapping>    

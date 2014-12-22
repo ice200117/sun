@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.sun.domain.Function" table="t_gnb" catalog="sun">
+		<id name="id" column="gn_id" type="java.lang.String">
+			<generator class="uuid"></generator>
+		</id>
+		<property name="funcName" column="gn_mc" type="java.lang.String"></property>
+		<property name="url" column="gn_url" type="java.lang.String"></property>
+		<property name="order" column="gn_bh" type="java.lang.String"></property>
+		<property name="parentId" column="gn_syjgncd" type="java.lang.String"></property>
+		<property name="page" column="gn_gnzymdwz" type="java.lang.String"></property>
+		<property name="operator" column="gn_czr" type="java.lang.String"></property>
+		<property name="insertTime" column="gn_lrsj" type="java.util.Date"></property>
+		<!-- <property name="updateTime" column="gn_xgsj" type="java.util.Date"></property> -->
+		<property name="delMark" column="gn_scbj" type="java.lang.String"></property>
+		<property name="yuliu1" column="gn_ylzd1" type="java.lang.String"></property>
+		<property name="yuliu2" column="gn_ylzd2" type="java.lang.String"></property>
+	</class>
+	
+</hibernate-mapping>    

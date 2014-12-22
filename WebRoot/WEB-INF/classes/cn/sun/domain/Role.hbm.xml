@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.sun.domain.Role" table="t_jsb" catalog="sun">
+		<id name="id" column="js_id" type="java.lang.String">
+			<generator class="uuid"></generator>
+		</id>
+		<property name="roleName" column="js_jsmc" type="java.lang.String"></property>
+		<property name="remark" column="js_bz" type="java.lang.String"></property>
+		<property name="defFunc" column="js_mrgn" type="java.lang.String"></property>
+		<property name="operator" column="js_czr" type="java.lang.String"></property>
+		<property name="insertTime" column="js_lrsj" type="java.util.Date"></property>
+		<property name="delMark" column="js_scbj" type="java.lang.String"></property>
+		<property name="yuliu1" column="js_ylzd1" type="java.lang.String"></property>
+		<property name="yuliu2" column="js_ylzd2" type="java.lang.String"></property>
+	</class>
+	
+</hibernate-mapping>    

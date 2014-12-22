@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.objectFactory" value="spring"></constant>
+	
+	<constant name="struts.custom.i18n.resources" value="messages"></constant>
+
+	<package name="needprivilege" extends="json-default">
+		<action name="index">
+			<result>/index.jsp</result>
+		</action>
+		<!-- 需要进行权限控制的页面访问 -->
+		<action name="page_*_*">
+			<result type="dispatcher">/WEB-INF/pages/{1}/{2}.jsp</result>
+		</action>
+		<!-- 企业管理 -->
+		<action name="qiye_*" class="qiyeAction" method="{1}">
+		
+			
+			<!-- 添加qiye -->
+	     <result name="addOrUpdateSUCCESS" type="json">
+				<param name="root">action</param>
+				<param name="includeProperties">msg</param>
+			</result>			
+			<!-- 分页 查询-->
+			<result name="paginationQuerySUCCESS" type="json">
+				<param name="root">pageResponseBean</param>
+			</result>
+			
+			<!-- 删除用户 -->
+			<result name="deleteSUCCESS" type="json">
+				<param name="root">action</param>
+				<param name="includeProperties">msg</param>
+			</result>
+			
+			
+		</action>
+		<!-- 用户管理 -->
+		<action name="user_*" class="userAction" method="{1}">
+			<!-- 修改密码成功 -->
+			<result name="modifyPwdSUCCESS" type="json">
+				<param name="root">action</param>
+				<param name="includeProperties">msg</param>
+			</result>
+			
+			<!-- 添加用户 -->
+			<result name="addSUCCESS" >/WEB-INF/pages/admin/userlist.jsp</result>
+			
+			<!-- 分页 查询-->
+			<result name="paginationQuerySUCCESS" type="json">
+				<param name="root">pageResponseBean</param>
+			</result>
+			
+			<!-- 删除用户 -->
+			<result name="deleteSUCCESS" type="json">
+				<param name="root">action</param>
+				<param name="includeProperties">msg</param>
+			</result>
+			
+			<!-- 根据id 查询数据 ，在页面显示 （修改表单） -->
+			<result name="editViewSUCCESS">/WEB-INF/pages/admin/userinfo.jsp</result>
+		</action>
+		
+		
+		<!-- 功能管理 -->
+		<action name="func_*" class="funcAction" method="{1}">
+			<!-- 添加用户 -->
+			<result name="addSUCCESS" >/WEB-INF/pages/authority/functionlist.jsp</result>
+			
+			<!-- 分页 查询-->
+			<result name="paginationQuerySUCCESS" type="json">
+				<param name="root">pageResponseBean</param>
+			</result>
+			
+			<!-- 删除用户 -->
+			<result name="deleteSUCCESS" type="json">
+				<param name="root">action</param>
+				<param name="includeProperties">msg</param>
+			</result>
+			
+			<!-- 根据id 查询数据 ，在页面显示 （修改表单） -->
+			<result name="editViewSUCCESS">/WEB-INF/pages/authority/functioninfo.jsp</result>
+		</action>
+		
+		
+		<!-- 角色管理 -->
+		<action name="role_*" class="roleAction" method="{1}">
+			<!-- 添加用户 -->
+			<result name="addSUCCESS" >/WEB-INF/pages/authority/rolelist.jsp</result>
+			
+			<!-- 分页 查询-->
+			<result name="paginationQuerySUCCESS" type="json">
+				<param name="root">pageResponseBean</param>
+			</result>
+			
+			<!-- 删除用户 -->
+			<result name="deleteSUCCESS" type="json">
+				<param name="root">action</param>
+				<param name="includeProperties">msg</param>
+			</result>
+			
+			<!-- 根据id 查询数据 ，在页面显示 （修改表单） -->
+			<result name="editViewSUCCESS">/WEB-INF/pages/authority/roleinfo.jsp</result>
+		</action>
+		
+		
+	</package>
+
+	<package name="noprivilege" extends="struts-default">
+		<!-- 登陆 -->
+		<action name="login" class="loginAction">
+			<result>/WEB-INF/pages/common/index.jsp</result>
+			<result name="input">/login.jsp</result>
+		</action>
+	</package>
+</struts>

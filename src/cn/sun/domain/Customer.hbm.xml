@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.sun.domain.Customer" table="customer" catalog="sun">
+		<id name="id">
+			<generator class="identity"></generator>
+		</id>
+		<property name="customername"></property>
+		<property name="password"></property>
+		<property name="birthday"></property>
+		<property name="salary"></property>
+		<property name="gender"></property>
+		<property name="station"></property>
+		<property name="telephone"></property>
+		<property name="remark"></property>
+	</class>
+	
+	
+</hibernate-mapping>    

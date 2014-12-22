@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="basicstruts2" location="10,107" size="525,245">
+    <action name="index" location="310,57" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="index.jsp" />
+      </result>
+    </action>
+    <action name="addbook" location="310,163" size="150,40" />
+    <action name="page_*_*" location="65,162" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="{2}.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="index.jsp" path="/index.jsp" location="320,9" size="150,55" />
+  <webResource name="{2}.jsp" path="/WEB-INF/pages/{1}/{2}.jsp" location="75,394" size="150,55" />
+</Struts2Diagram>
+

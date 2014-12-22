@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx.xsd">
+	
+	<!-- 登陆Action -->
+	<bean id="loginAction" class="cn.sun.web.action.LoginAction" scope="prototype">
+		<constructor-arg index="0" type="java.lang.String" value="cn.sun.domain.User"></constructor-arg>
+	</bean>
+		<!-- 用户管理Action -->
+	<bean id="userAction" class="cn.sun.web.action.UserAction" scope="prototype">
+		<constructor-arg index="0" type="java.lang.String" value="cn.sun.domain.User"></constructor-arg>
+	</bean>
+
+	
+	
+	<!-- 功能管理Action -->
+	<bean id="funcAction" class="cn.sun.web.action.FuncAction" scope="prototype">
+		<constructor-arg index="0" type="java.lang.String" value="cn.sun.domain.Function"></constructor-arg>
+	</bean>
+	
+	
+	<!-- 角色管理Action -->
+	<bean id="roleAction" class="cn.sun.web.action.RoleAction" scope="prototype">
+		<constructor-arg index="0" type="java.lang.String" value="cn.sun.domain.Role"></constructor-arg>
+	</bean>
+	
+
+		<!-- 防治技术Action -->
+	<bean id="wrfzjsAction" class="cn.sun.web.action.WrfzjsAction" scope="prototype">
+		<constructor-arg index="0" type="java.lang.String" value="cn.sun.domain.Wrfzjs"></constructor-arg>
+	</bean>
+	<bean id="qiyeAction" class="cn.sun.web.action.QiyeAction" scope="prototype">
+		<constructor-arg index="0" type="java.lang.String" value="cn.sun.domain.Qiye"></constructor-arg>
+	</bean>
+	<bean id="BaseServletByCmd" class="cn.sun.servlet.BaseServletByCmd">  
+        <property name="QiyeService" ref="qiyeService"></property>  
+    </bean>
+</beans>
